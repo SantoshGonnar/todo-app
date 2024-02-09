@@ -1,0 +1,81 @@
+import React from "react";
+import "./Todo.css";
+import { useState } from "react";
+import TodoCards from "./TodoCards";
+
+const Todo = () => {
+  const [Inputs, setInputs] = useState({ title: "", body: "" });
+  const [array, setArray] = useState([]);
+  const show = () => {
+    document.getElementById("textarea").style.display = "block";
+  };
+  const change = (e) => {
+    const { name, value } = e.target;
+    setInputs({ ...Inputs, [name]: value });
+  };
+  const submit = () => {
+    setArray((prevArray) => [...prevArray, Inputs]);
+    setInputs({ title: "", body: "" });
+  };
+  const del = (id) => {
+    array.splice(id,"1");
+    setArray(...array);
+  };
+
+  return (
+    <div className="todo">
+      <div className="todo-main container d-flex justify-content-center align-items-center my-4 flex-column">
+        <div className="d-flex flex-column todo-inputes-div w-lg-50 w-100 p-1">
+          <input
+            type="text"
+            name="title"
+            value={Inputs.title}
+            placeholder="TITLE"
+            className="my-2 p-2 todo-inputes"
+            onClick={show}
+            onChange={change}
+          />
+          <textarea
+            id="textarea"
+            type="text"
+            name="body"
+            value={Inputs.body}
+            placeholder="BODY"
+            className="my-2 p-2 todo-inputes"
+            onChange={change}
+          />
+        </div>
+        <div className=" w-50 w-100 d-flex justify-content-end my-3">
+          <button className="home-btn px-2 py-1" onClick={submit}>
+            Add
+          </button>
+        </div>
+      </div>
+      <div className="todo-body">
+        <div className="container-fluid">
+          <div className="row ">
+            {array &&
+              array.map((item, index) => (
+                <div
+                  className="col-lg-3 col-11 mx-lg-5 mx-3 my-2"
+                  // key={index}
+                >
+                  <TodoCards
+                    title={item.title}
+                    body={item.body}
+                    id={index}
+                    delid={del}
+                    // display={dis}
+                    // updateId={index}
+                    // toBeUpdate={update}
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Todo;

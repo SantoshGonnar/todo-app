@@ -6,6 +6,7 @@
     color: rgb(240, 0, 0,0.87);
     font-size: 25px;
     font-weight: bold;
+    
 
 }
 .btn-nav{
@@ -13,4 +14,9 @@
     border-radius: 5px;
     color: white !important;
     font-weight: bold;
+    
 }
+.custom-link {
+    text-decoration: none;
+    color: black; /* Set the desired color */
+  }

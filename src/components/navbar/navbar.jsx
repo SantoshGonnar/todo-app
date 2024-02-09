@@ -1,16 +1,18 @@
 import React from "react";
 import './navbar.css';
 import { GiNotebook } from "react-icons/gi";
+import { Link } from "react-router-dom";
+
 
 const navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <b>
             <GiNotebook /> &nbsp; Todo </b>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,41 +26,40 @@ const navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+              <li className="nav-item mx-2">
+                <Link className="custom-link" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+              <li className="nav-item mx-2 ">
+                <Link className="custom-link" aria-current="page" to="/about">
                   About Us
-                </a>
+                </Link>
               </li>
               <li className="nav-item mx-2">
-                <a className="nav-link active btn-nav"
-                 aria-current="page" href="#">
+                <Link className="custom-link" aria-current="page" to="/todo">
+                  Todo
+                </Link>
+              </li>
+              <li className="nav-item mx-2">
+                <Link className="custom-link btn-nav"
+                 aria-current="page" to="/signup">
                   SignUp 
-                </a>
+                </Link>
               </li>
               <li className="nav-item mx-2">
-                <a className="nav-link active btn-nav"
-                 aria-current="page" href="#">
+                <Link className="custom-link btn-nav"
+                 aria-current="page" to="/signin">
                   SignIn
-                </a>
+                </Link>
               </li>
               <li className="nav-item mx-2">
-                <a className="nav-link active btn-nav"
-                 aria-current="page" href="#">
+                <Link className="custom-link btn-nav"
+                 aria-current="page" to="/">
                   LogOut
-                </a>
+                </Link>
               </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  <img className="img-fluid user-png"
-                   src="https://alhathal.net/wp-content/uploads/2019/07/516-5167304_transparent-background-white-user-icon-png-png-download.png"
-                   alt="/" />
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>
